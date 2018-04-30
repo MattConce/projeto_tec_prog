@@ -17,11 +17,9 @@
 
   <tbody>
     <% @usuarios.each do |usuario| %>
-      <tr>
-        <% depoimento = @depoimentos.usuario(usuario.id) %>
+      <tr>        
         <td><%= usuario.nome %></td>
         <td><%= usuario.idade %></td>
-        <td><%= link_to 'Depoimento', depoimento %>
         <td><%= link_to 'Show', usuario %></td>
         <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
         <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>

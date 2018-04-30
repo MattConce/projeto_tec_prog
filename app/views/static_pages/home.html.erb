@@ -1,4 +1,3 @@
-<% provide(:title, "Home") %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,16 +14,17 @@
       </header>
     <div class="menu">
     <ul>
-      <li><a href="home">Home</a><li>
-      <li><a href="help">Help</a><li>
-      <li><a href="about">About</a><li>
+      <li> <%= link_to "Home", root_path %></li>
+      <li> <%= link_to "Help", help_path %></li>
+      <li> <%= link_to "About", about_path %></li>
+      <li> <%= link_to "Sing in", singIn_path %></li>
     </ul>
   </div>
     <br>
     <p> <spam style="color:Indigo;font-size:16px;">Confiram nossa página no facebook </spam>
       <a href="https://pt-br.facebook.com/CombateCancer/"target="_blank">COMBATE AO CÂNCER</a>
     </p>
-    <p> <%= link_to 'Crie seu cadastro', new_usuario_path %> </p>
+    <p> <%= link_to 'Cadastre-se', new_usuario_path %> </p>
   </div>
   </body>
 <html>
