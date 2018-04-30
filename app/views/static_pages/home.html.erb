@@ -1,0 +1,30 @@
+<% provide(:title, "Home") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--  static_pages.css se encontra em app/assets/stylesheet -->
+    <link rel="stylesheet" type="text/css" href="static_pages.css">
+    <title> <%= yield(:title) %> | COMBATE AO CÂNCER</title>
+    <meta charset="uft-8">
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1> <b>Combate ao Câncer </b></h1>
+      </header>
+    <div class="menu">
+    <ul>
+      <li><a href="home">Home</a><li>
+      <li><a href="help">Help</a><li>
+      <li><a href="about">About</a><li>
+    </ul>
+  </div>
+    <br>
+    <p> <spam style="color:Indigo;font-size:16px;">Confiram nossa página no facebook </spam>
+      <a href="https://pt-br.facebook.com/CombateCancer/"target="_blank">COMBATE AO CÂNCER</a>
+    </p>
+    <p> <%= link_to 'Crie seu cadastro', new_usuario_path %> </p>
+  </div>
+  </body>
+<html>
