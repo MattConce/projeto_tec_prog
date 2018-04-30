@@ -4,13 +4,28 @@
     border:1px solid gray;
   }
 
-  .menu {
+  ul.menu {
     list-style-type:none;
     margin: 0;
     padding:  0;
     overflow: hidden;
     clear: left;
     background-color: #333333
+  }
+  li.nav {
+    float:left;
+  }
+  li.nav a {
+    display:block;
+    color:white;
+    text-aling:center;
+    font-size: 100%;
+    font-family:sans-serif;
+    padding: 15px 17px;
+    text-decoration:none;
+  }
+  li a.hover {
+    background-color:#111111;
   }
   header {
     padding: 1em;
@@ -20,17 +35,3 @@
     background-color:Crimson;
   }
   body {background-color:white;}
-
-  li {
-    float: left;
-  }
-  li a:link {
-    display:block;
-    color:white;
-    text-aling:center;
-    padding: 15px;
-    text-decoration:none;
-  }
-  li a.hover {
-    background-color:#111111;
-  }

@@ -1,7 +1,42 @@
-<h1>New Usuario</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      h1 {
+        color:Indigo;
+        font-size: 200%;
+      }
+      .center {
+        text-aling:center;
+      }
+    </style>
+  </head>
 
-<%= render 'form', usuario: @usuario %>
+<h1>Novo Usuário</h1>
 
-<%= link_to 'Lista', usuarios_path %>
+<div class="center">
+<!--<%= render 'form', usuario: @usuario %> -->
+<%= form_for @usuario do |f| %>
+<%= f.label :nome %>
+<%= f.text_field :nome %>
+<%= f.label :email %>
+<%= f.text_field :email %>
+<%= f.label :idade %>
+<%= f.number_field :idade %>
+<%= f.label :senha %>
+<%= f.password_field :password %>
+<%= f.label :confirmação %>
+<%= f.password_field :password %>
+<br>
+<spam style="text-aling:center"><%= f.submit "Criar"%> </spam>
+<% end %>
+<br>
+<div>
+  <%= link_to 'Back', root_path %> <br>
+  <spam style="font-size:120%"><%= link_to 'Veja depoimentos', depoimentos_path %> </spam>
+</div>
 
-<%= link_to 'Depoimento', depoimentos_path %>
+</div>
+
+</html>

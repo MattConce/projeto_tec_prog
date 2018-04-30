@@ -1,3 +1,4 @@
+<% provide(:title, "Home") %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,12 +13,12 @@
       <header>
         <h1> <b>Combate ao Câncer </b></h1>
       </header>
-    <div class="menu">
-    <ul>
-      <li> <%= link_to "Home", root_path %></li>
-      <li> <%= link_to "Help", help_path %></li>
-      <li> <%= link_to "About", about_path %></li>
-      <li> <%= link_to "Sing in", singIn_path %></li>
+    <div >
+    <ul class="menu">
+      <li class="nav"> <%= link_to "Home", root_path %></li>
+      <li class="nav"> <%= link_to "Help", help_path %></li>
+      <li class="nav"> <%= link_to "About", about_path %></li>
+      <li class="nav"> <%= link_to "Sing in", singIn_path %></li>
     </ul>
   </div>
     <br>

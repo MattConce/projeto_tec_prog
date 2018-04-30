@@ -17,7 +17,7 @@
 
   <tbody>
     <% @usuarios.each do |usuario| %>
-      <tr>        
+      <tr>
         <td><%= usuario.nome %></td>
         <td><%= usuario.idade %></td>
         <td><%= link_to 'Show', usuario %></td>
@@ -31,4 +31,4 @@
 <br>
 
 <%= link_to 'New Usuario', new_usuario_path %>
-<a href="static_pages/home">Home Page</a>
+<%= link_to 'Home Page', root_path %>
