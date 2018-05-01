@@ -1,31 +1,6 @@
 <% provide(:title, "Home") %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <!--  static_pages.css se encontra em app/assets/stylesheet -->
-    <link rel="stylesheet" type="text/css" href="static_pages.css">
-    <title> <%= yield(:title) %> | COMBATE AO CÂNCER</title>
-    <meta charset="uft-8">
-  </head>
-
-  <body>
-    <div class="container">
-      <header>
-        <h1> <b>Combate ao Câncer </b></h1>
-      </header>
-    <div >
-    <ul class="menu">
-      <li class="nav"> <%= link_to "Home", root_path %></li>
-      <li class="nav"> <%= link_to "Help", help_path %></li>
-      <li class="nav"> <%= link_to "About", about_path %></li>
-      <li class="nav"> <%= link_to "Sing in", singIn_path %></li>
-    </ul>
-  </div>
-    <br>
-    <p> <spam style="color:Indigo;font-size:16px;">Confiram nossa página no facebook </spam>
-      <a href="https://pt-br.facebook.com/CombateCancer/"target="_blank">COMBATE AO CÂNCER</a>
-    </p>
-    <p> <%= link_to 'Cadastre-se', new_usuario_path %> </p>
-  </div>
-  </body>
-<html>
+<div class="center jumbotron jumbotron-fluid">
+  <h1 class="display-3"> Apoio Combate ao Câncer</h1>
+  <p>Find me in app/views/static_pages/home.html.erb</p>
+  <%= link_to "Cadastre-se", signup_path, class: "btn btn-lg btn-primary"%>
+</div>
