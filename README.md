@@ -6,7 +6,18 @@ O objetivo do projeto é a criação de um ambiente de apoio e distribuição de
 
 ## Instalação e execução
 
-(adicionar instruções de instalação e execução, dependências)
+bundle install para a instalação das gems necessárias
+rails server para subir o servidor e acessar a página inicial em localhost:3000
+
+## Primeira entrga
+Para primeira entrega temos a home page pronta e implementado login de usuário e senha
+assim como um primeiro esboço de perfil do usuário.
+
+## Segunda entrega
+Modelos e controllers
+
+## Terceira entrega
+aplicação completa
 
 ## Integrantes
 * Leonardo Ikeda ([@ikedawalk](http://github.com/ikedawalk))
