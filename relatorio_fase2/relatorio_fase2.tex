@@ -1,0 +1,86 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage[brazilian]{babel}
+\usepackage{multicol} 
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} % necessário para manter as imagens no lugar certo
+%\usepackage{wrapfig}
+\title{{\bf Universidade de São Paulo} \\MAC 0218 - Técnicas de Programação 2 \\ Relatório da Segunda Fase do Projeto}
+\author{Leonardo Ikeda     nº USP: 10262822 \\
+	    Marcelo Schmitt    nº USP: 9297641\\
+	    Matheus Conceição  nº USP: 10297672}
+\begin{document}
+\date{}
+\maketitle
+
+Instruções:
+
+Considerando que foram feitos os passos de instalação contidos nas primeiras três páginas da apostila de rails do projesor Marco Dimas Gubitoso.
+
+\begin{enumerate}
+	\item Baixe os arquivos do repositóri com executando o comando\\ \texttt{git clone https://github.com/MattConce/projeto\_tec\_prog.git}\\ ou com o comando\\ \texttt{git clone git@github.com:MattConce/projeto\_tec\_prog.git} \\
+	\item Acesse o diretório onde o projeto foi clonado pelo terminal e execute o comando \texttt{bundle install}
+	\begin{enumerate}
+		\item Se \texttt{bundle install} falhar tente instalar a libpg-dev com \\ \texttt{sudo apt-get install libpq-dev}
+		\item Execute o comando \\
+		\texttt{gem install pg} \\
+		no diretório do projeto
+		\item Execute \texttt{bundle install} novamente
+	\end{enumerate}
+	\item Crie e configure o usuário de acesso ao banco de dados
+	\begin{enumerate}
+		\item Crie o usuário de acesso ao banco de dados com  \\
+		\texttt{sudo -u postgres createuser combateaocancer -s}
+		\item Acesse o SGBD com admin com \\
+		\texttt{psql -U postgres}
+		\item Altere a senha de acesso ao BD executando \\
+		\texttt{alter user combateaocancer with encrypted password 'senha';}
+		\item Crie um banco de dados para o usuário \\
+		\texttt{CREATE DATABASE combateaocancer;}
+		\item Altere as permições com\\
+		\texttt{alter database combateaocancer owner to combateaocancer;}
+		\item Edite o mondo de conexão com o BD\\
+		\texttt{sudo gedit /etc/postgresql/9.6/main/pg\_hba.conf}
+		\item na linha referente a conexão local (normalmente a linha 90), abaixo da linha:
+		\begin{verbatim}
+		# "local" is for Unix domain socket connections only
+		\end{verbatim}
+		insira:
+		\begin{verbatim}
+		local   all             combateaocancer                         md5
+		\end{verbatim}
+		seu arquivo deve ficar assim:
+		\begin{verbatim}
+		# "local" is for Unix domain socket connections only
+		local   all             combateaocancer                         md5
+		local   all             all                                     peer
+		# IPv4 local connections:
+		host    all             all             127.0.0.1/32            md5
+		# IPv6 local connections:
+		host    all             all             ::1/128                 md5
+		\end{verbatim}
+		\item Feche o arquivo e reinicie o BD com \\
+		\texttt{sudo /etc/init.d/postgresql restart}
+	\end{enumerate}
+	\item Execute o comando\\
+	\texttt{rake db:create}
+	\begin{enumerate}
+		\item Se \texttt{rake db:create} terminar com erro tente executar os comandos\\
+		\texttt{bin/rails db:migrate RAILS\_ENV=development}\\
+		e\\
+		\texttt{bin/rails db:migrate RAILS\_ENV=test}
+	\end{enumerate}
+	\item Execute \texttt{bin/rails server}
+\end{enumerate}
+
+
+
+
+\end{document}
