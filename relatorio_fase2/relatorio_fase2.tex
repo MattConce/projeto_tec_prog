@@ -20,67 +20,29 @@
 \date{}
 \maketitle
 
-Instruções:
+%Deve ser entregue no paca um relatório sucinto do que foi feito, quais os próximos passos  e das principais dificuldades encontradas. 
 
-Considerando que foram feitos os passos de instalação contidos nas primeiras três páginas da apostila de rails do projesor Marco Dimas Gubitoso.
+\noindent Funcionalidades implementadas até agora:
+\begin{itemize}
+	\item Tela de boas vindas (acessível pela url \url{http://localhost:3000/})
+	\item Cadastro de usuário (\url{http://localhost:3000/signup})
+	\item Visualização básica de cada usuário cadastrados (\url{http://localhost:3000/users/1} para informações do usuário de id 1 por exemplo)
+\end{itemize}
 
-\begin{enumerate}
-	\item Baixe os arquivos do repositóri com executando o comando\\ \texttt{git clone https://github.com/MattConce/projeto\_tec\_prog.git}\\ ou com o comando\\ \texttt{git clone git@github.com:MattConce/projeto\_tec\_prog.git} \\
-	\item Acesse o diretório onde o projeto foi clonado pelo terminal e execute o comando \texttt{bundle install}
-	\begin{enumerate}
-		\item Se \texttt{bundle install} falhar tente instalar a libpg-dev com \\ \texttt{sudo apt-get install libpq-dev}
-		\item Execute o comando \\
-		\texttt{gem install pg} \\
-		no diretório do projeto
-		\item Execute \texttt{bundle install} novamente
-	\end{enumerate}
-	\item Crie e configure o usuário de acesso ao banco de dados
-	\begin{enumerate}
-		\item Crie o usuário de acesso ao banco de dados com  \\
-		\texttt{sudo -u postgres createuser combateaocancer -s}
-		\item Acesse o SGBD com admin com \\
-		\texttt{psql -U postgres}
-		\item Altere a senha de acesso ao BD executando \\
-		\texttt{alter user combateaocancer with encrypted password 'senha';}
-		\item Crie um banco de dados para o usuário \\
-		\texttt{CREATE DATABASE combateaocancer;}
-		\item Altere as permições com\\
-		\texttt{alter database combateaocancer owner to combateaocancer;}
-		\item Edite o mondo de conexão com o BD\\
-		\texttt{sudo gedit /etc/postgresql/9.6/main/pg\_hba.conf}
-		\item na linha referente a conexão local (normalmente a linha 90), abaixo da linha:
-		\begin{verbatim}
-		# "local" is for Unix domain socket connections only
-		\end{verbatim}
-		insira:
-		\begin{verbatim}
-		local   all             combateaocancer                         md5
-		\end{verbatim}
-		seu arquivo deve ficar assim:
-		\begin{verbatim}
-		# "local" is for Unix domain socket connections only
-		local   all             combateaocancer                         md5
-		local   all             all                                     peer
-		# IPv4 local connections:
-		host    all             all             127.0.0.1/32            md5
-		# IPv6 local connections:
-		host    all             all             ::1/128                 md5
-		\end{verbatim}
-		\item Feche o arquivo e reinicie o BD com \\
-		\texttt{sudo /etc/init.d/postgresql restart}
-	\end{enumerate}
-	\item Execute o comando\\
-	\texttt{rake db:create}
-	\begin{enumerate}
-		\item Se \texttt{rake db:create} terminar com erro tente executar os comandos\\
-		\texttt{bin/rails db:migrate RAILS\_ENV=development}\\
-		e\\
-		\texttt{bin/rails db:migrate RAILS\_ENV=test}
-	\end{enumerate}
-	\item Execute \texttt{bin/rails server}
-\end{enumerate}
+\noindent Funcionalidades previstas:
+\begin{itemize}
+	\item Melhoria da visualização de cada usuário.
+	\item Cadastro de depoimentos
+	\item Tela de login
+	\item Tela de informações gerais sobre câncer
+	\item Envio de e-mail informativos para usuários cadastrados
+	\item Cadastro para doaçao de medula e sangue
+\end{itemize}
 
-
-
+\noindent Dificuldades encontradas:
+\begin{itemize}
+	\item Configuração do postges: foi bem chato configurar o usuário do postgres para permitir a aplicação ter acesso ao banco de dados. Isso se refletiu no manual de instalação.
+	\item Estabelecer as relaçoes entre os modelos do rails, tanto que acebei deixamos apenas o modelo do usuario pronto nessa fase.
+\end{itemize}
 
 \end{document}
