@@ -1,0 +1,48 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage[brazilian]{babel}
+\usepackage{multicol} 
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} % necessário para manter as imagens no lugar certo
+%\usepackage{wrapfig}
+\title{{\bf Universidade de São Paulo} \\MAC 0218 - Técnicas de Programação 2 \\ Relatório da Segunda Fase do Projeto}
+\author{Leonardo Ikeda     nº USP: 10262822 \\
+	    Marcelo Schmitt    nº USP: 9297641\\
+	    Matheus Conceição  nº USP: 10297672}
+\begin{document}
+\date{}
+\maketitle
+
+%Deve ser entregue no paca um relatório sucinto do que foi feito, quais os próximos passos  e das principais dificuldades encontradas. 
+
+\noindent Funcionalidades implementadas até agora:
+\begin{itemize}
+	\item Tela de boas vindas (acessível pela url \url{http://localhost:3000/})
+	\item Cadastro de usuário (\url{http://localhost:3000/signup})
+	\item Visualização básica de cada usuário cadastrados (\url{http://localhost:3000/users/1} para informações do usuário de id 1 por exemplo)
+\end{itemize}
+
+\noindent Funcionalidades previstas:
+\begin{itemize}
+	\item Melhoria da visualização de cada usuário.
+	\item Cadastro de depoimentos
+	\item Tela de login
+	\item Tela de informações gerais sobre câncer
+	\item Envio de e-mail informativos para usuários cadastrados
+	\item Cadastro para doaçao de medula e sangue
+\end{itemize}
+
+\noindent Dificuldades encontradas:
+\begin{itemize}
+	\item Configuração do postges: foi bem chato configurar o usuário do postgres para permitir a aplicação ter acesso ao banco de dados. Isso se refletiu no manual de instalação.
+	\item Estabelecer as relaçoes entre os modelos do rails, tanto que acebei deixamos apenas o modelo do usuario pronto nessa fase.
+\end{itemize}
+
+\end{document}
