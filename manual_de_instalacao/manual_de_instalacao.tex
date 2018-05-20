@@ -59,7 +59,7 @@ Considerando que foram feitos os passos de instalação contidos nas primeiras t
 		# Database administrative login by Unix domain socket
 		local   all             postgres                      md5
 		\end{verbatim}
-		\item Reinicie o SGBD\\
+		\item Feche o arquivo e reinicie o SGBD com \\
 		\texttt{sudo /etc/init.d/postgresql restart}
 		\item Crie o usuário de acesso ao banco de dados com  \\
 		\texttt{sudo -u postgres createuser combateaocancer -s}.\\
@@ -87,8 +87,7 @@ Considerando que foram feitos os passos de instalação contidos nas primeiras t
 		\texttt{alter database combateaocancer owner to combateaocancer;}
 		\item Edite o mondo de conexão com o BD\\
 		\texttt{sudo gedit /etc/postgresql/9.6/main/pg\_hba.conf}
-		\item na linha referente a conexão local (normalmente a linha 90), abaixo da linha:\\
-		TODO mudar 
+		\item na linha referente a conexão local (normalmente a linha 90), abaixo da linha:
 		\begin{verbatim}
 		# Database administrative login by Unix domain socket
 		local   all             postgres                           peer
