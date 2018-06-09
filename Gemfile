@@ -60,3 +60,5 @@ gem 'jquery-rails'
 gem "pg"
 #gem "haml"
 #gem "haml-rails", :group => 'development'
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'

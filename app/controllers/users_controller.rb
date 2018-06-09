@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.paginate(page: params[:page])
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :age, :email, :password, :password_confirmation)
