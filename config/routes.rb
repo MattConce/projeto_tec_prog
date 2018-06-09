@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   #recurso que permite acesso a tabela de usuários no banco de dados
+  #usuários tem acesso a seus posts
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :posts, only: [:create, :destroy]
+
 end

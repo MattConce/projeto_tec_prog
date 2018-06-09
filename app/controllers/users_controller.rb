@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+
+
   def new
      @user = User.new
   end
   def show
     @user = User.find(params[:id])
-    #debugger
+    @posts = @user.posts.paginate(page: params[:page])
   end
 
   def create
@@ -21,9 +24,15 @@ class UsersController < ApplicationController
   def index
     @users = User.paginate(page: params[:page])
   end
+  wrap_parameters :user, include: [:name, :age, :email, :password, :password_confirmation]
 
   private
     def user_params
       params.require(:user).permit(:name, :age, :email, :password, :password_confirmation)
     end
+
+    def correct_user
+     @user = User.find(params[:id])
+     redirect_to(root_url) unless current_user?(@user)
+   end
 end
