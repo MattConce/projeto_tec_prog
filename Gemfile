@@ -39,6 +39,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # Para os testes
+  gem 'rspec-rails', '~> 3.6'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -57,6 +60,10 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'jquery-rails'
 
 gem "pg"
+
+# Para limpar o banco de dados de teste depois de cada teste do RSpec
+gem 'database_cleaner', group: :test
+
 #gem "haml"
 #gem "haml-rails", :group => 'development'
 gem 'will_paginate',           '3.1.6'
