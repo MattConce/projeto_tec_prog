@@ -12,7 +12,7 @@ class RegistersController < ApplicationController
       flash[:success] = "Cadastro criado"
       redirect_to root_url
     else
-      render 'static_pages/contact'
+      render 'new'
     end
   end
 
