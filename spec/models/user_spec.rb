@@ -5,10 +5,10 @@ describe User, 'validation' do
   it { should validate_length_of(:password).is_at_least(6) }
 
   it { should validate_presence_of(:name) }
-  it { should validate_length_of(:name).is_at_most(50)}
+  it { should validate_length_of(:name).is_at_most(50) }
 
   it { should validate_presence_of(:email) }
-  it { should validate_length_of(:email).is_at_most(255)}
+  it { should validate_length_of(:email).is_at_most(255) }
   it { should validate_uniqueness_of(:email).case_insensitive }
 
 end
@@ -17,6 +17,12 @@ describe User, 'association' do
   it { should have_secure_password }
   it { should have_many(:posts) }
   it { should have_one(:register) }
+end
+
+describe User, 'column_specification' do
+  #it { should have_db_column(:password).with_options(presence:{ on: :create }, length: {minimum: 6})}
+  it { should have_db_column(:name).with_options(length: {maximum: 50})}
+  it { should have_db_column(:email).with_options(presence: true, length: {maximum:255}, uniqueness: {case_sensitive: false})}
 end
 
 describe User, :type => :model do
