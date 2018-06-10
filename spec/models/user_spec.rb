@@ -1,7 +1,26 @@
 require "rails_helper"
 
-RSpec.describe User, :type => :model do
-  
+describe User, 'validation' do
+  it { should validate_presence_of(:password) }
+  it { should validate_length_of(:password).is_at_least(6) }
+
+  it { should validate_presence_of(:name) }
+  it { should validate_length_of(:name).is_at_most(50)}
+
+  it { should validate_presence_of(:email) }
+  it { should validate_length_of(:email).is_at_most(255)}
+  it { should validate_uniqueness_of(:email).case_insensitive }
+
+end
+
+describe User, 'association' do
+  it { should have_secure_password }
+  it { should have_many(:posts) }
+  it { should have_one(:register) }
+end
+
+describe User, :type => :model do
+
   before(:all) do
     @user1 = create(:user)
     # @user1 = build_stubbed(:user)
@@ -11,12 +30,12 @@ RSpec.describe User, :type => :model do
   it "is valid with valid attributes" do
     expect(@user1).to be_valid
   end
-  
+
   it "is not valid without a password" do 
     user2 = build(:user, password: nil)
     expect(user2).to_not be_valid
   end
-  
+
   it "is not valid without a username" do 
     user2 = build(:user, name: nil)
     expect(user2).to_not be_valid
@@ -31,7 +50,7 @@ RSpec.describe User, :type => :model do
     user2 = build(:user, email: @user1.email)
     expect(user2).to_not be_valid
   end
-  
+
   it "is not valid without an email" do
     user2 = build(:user, email: nil)
     expect(user2).to_not be_valid

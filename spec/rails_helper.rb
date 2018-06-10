@@ -60,3 +60,12 @@ RSpec.configure do |config|
   # Para usar o FactoryBot
   config.include FactoryBot::Syntax::Methods
 end
+
+Shoulda::Matchers.configure do |config|
+   config.integrate do |with|
+     #Specify the test framework:
+     with.test_framework :rspec
+     with.library :rails
+   end
+end
+
