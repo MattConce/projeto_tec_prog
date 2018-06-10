@@ -1,0 +1,18 @@
+<% provide(:title, 'Cadastro') %>
+<h1>Novo cadastro</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for (@register) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label "Tipo sanguíneo" %>
+      <%= f.text_field :blood_type %>
+      <br>
+      <%= f.label "Tipo de câncer" %>
+      <%= f.text_field :cancer_type %>
+      <br>
+      <%= f.submit "Criar cadastro", class: "btn btn-primary" %>
+
+    <% end %>
+  </div>
+</div>

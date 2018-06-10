@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get    '/contact', to: 'static_pages#contact'
   get    '/signup',  to: 'users#new'
   post   '/signup',  to: 'users#create'
+  get    '/register',  to: 'registers#new'
+  post   '/register',  to: 'registers#create'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
@@ -15,5 +17,6 @@ Rails.application.routes.draw do
   #usuários tem acesso a seus posts
   resources :users
   resources :posts, only: [:create, :destroy]
+  resources :registers
 
 end

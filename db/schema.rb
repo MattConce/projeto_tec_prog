@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180609172907) do
+ActiveRecord::Schema.define(version: 20180610140716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20180609172907) do
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "registers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "blood_type"
+    t.string "cancer_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_registers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +49,5 @@ ActiveRecord::Schema.define(version: 20180609172907) do
   end
 
   add_foreign_key "posts", "users"
+  add_foreign_key "registers", "users"
 end
