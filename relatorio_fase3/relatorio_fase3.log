@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.13)  10 JUN 2018 21:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.13)  10 JUN 2018 21:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -737,19 +737,19 @@ Package babel Info: Redefining portuges shorthand "|
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 52.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 53.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 52.
+(babel)             in language append on input line 53.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 52.
+(babel)             in language append on input line 53.
  [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 52.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 53.
  (./relatorio_fase3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 52.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 52.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 53.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 53.
 Package rerunfilecheck Info: File `relatorio_fase3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 52.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 53.
  ) 
 Here is how much of TeX's memory you used:
  7888 strings out of 494929
@@ -766,10 +766,10 @@ r/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/marcelo/.texmf-var/fonts/p
 k/ljfour/jknappen/ec/ecrm2074.600pk> </home/marcelo/.texmf-var/fonts/pk/ljfour/
 jknappen/ec/ecbx2074.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb>
-Output written on relatorio_fase3.pdf (2 pages, 60725 bytes).
+Output written on relatorio_fase3.pdf (2 pages, 60871 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 206 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  3 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
