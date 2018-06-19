@@ -43,7 +43,18 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers', '~> 3.1'
-end
+  # Para fazer testes como o Jasmine
+  #gem 'poltergeist'
+  #gem 'phantomjs', :require => 'phantomjs/poltergeist'
+
+  #gem 'jasminerice'
+  #gem 'guard-jasmine'
+  gem 'jasmine', '~> 2.99'
+  #gem 'jasmine-headless-webkit'
+  #jasmine-headless-webkit-0.8.4
+  gem 'jasmine-rails', '~> 0.14'
+  gem 'jasmine-jquery-rails'
+end	
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -60,6 +71,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '3.3.7'
 gem 'jquery-rails'
 
+# Para usar o PostgreSQL
 gem "pg"
 
 # Para limpar o banco de dados de teste depois de cada teste do RSpec
