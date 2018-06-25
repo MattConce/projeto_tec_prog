@@ -1,0 +1,2 @@
+class RecomentationsController < ApplicationController
+end
