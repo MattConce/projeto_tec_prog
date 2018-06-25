@@ -3,7 +3,7 @@
 
 body {
   padding-top: 60px;
-  background-color:#F9F15C;
+  background-color:#fef9ba;
 }
 
 section {
@@ -45,6 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-weight: bold;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -57,24 +58,25 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: #2b2525;
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  color: #2a363b;
 }
 
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid #000;
   color: #777;
   a {
-    color:white;
+    color:black;
     &:hover {
-      color: #222;
+      color:white;
     }
   }
   small {
