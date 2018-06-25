@@ -11,7 +11,7 @@ class RegistersController < ApplicationController
     @user = current_user
     if @register.save
       flash[:success] = "Cadastro criado"
-      UserMailer.with(user: @user).info_email.deliver_later
+      UserMailer.with(user: @user).info_email(@user).deliver
       redirect_to root_url
     else
       render 'new'
