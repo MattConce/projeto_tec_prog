@@ -14,6 +14,9 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @user = current_user
+    if @post.user.id  != @user.id
+      redirect_to @user
+    end 
   end
 
   def update
@@ -26,13 +29,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy 
+    @post = Post.find(params[:id])
+    @user = current_user
+    if @post.user.id  == @user.id
+      @post.destroy
+    end 
+    redirect_to @user
+  end
+
   private
     def post_params
       params.require(:post).permit(:title, :body)
   end
 
 
-  def destroy
-  end
 
 end
