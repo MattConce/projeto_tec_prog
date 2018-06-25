@@ -5,4 +5,6 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at)%> ago.
   </span>
+  <%= link_to 'Editar', edit_post_path(post) %>
+
 </li>

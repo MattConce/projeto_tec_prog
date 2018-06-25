@@ -11,13 +11,28 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy
+  def edit
+    @post = Post.find(params[:id])
+    @user = current_user
+  end
+
+  def update
+    @post = Post.find(params[:id])   
+
+    if @post.update(post_params)
+      redirect_to root_url
+    else
+      render 'edit'
+    end
   end
 
   private
-
     def post_params
-      params.require(:post).permit(:body)
-    end
+      params.require(:post).permit(:title, :body)
+  end
+
+
+  def destroy
+  end
 
 end
