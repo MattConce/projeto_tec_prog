@@ -14245,3 +14245,896 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 50ms (Views: 46.9ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-06-26 17:40:37 -0300
+  [1m[35m (76.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (32.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1703ms (Views: 1522.0ms | ActiveRecord: 36.6ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-26 17:40:43 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (210.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 380ms (Views: 253.8ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-26 17:41:26 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vY2Ic5wUWlXspzHyPDsoFUlWMeB04XyWwIe1fCBJbqavwVeXZSQIJWwhATKNYxhI83Opbapo07qObtKGnEaXYA==", "user"=>{"name"=>"lara", "age"=>"23", "email"=>"vawuyaki@loketa.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Criar minha conta"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (18.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "vawuyaki@loketa.com"], ["LIMIT", 1]]
+  [1m[35mSQL (5.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "age", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "lara"], ["email", "vawuyaki@loketa.com"], ["age", 23], ["created_at", "2018-06-26 20:41:26.763375"], ["updated_at", "2018-06-26 20:41:26.763375"], ["password_digest", "$2a$10$OWG6JnMhIcKwkiQNxhfSwOZmR0GYY76WKoMiSHe1oJD6vqXagn6VG"]]
+  [1m[35m (13.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 208ms (ActiveRecord: 108.6ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2018-06-26 17:41:26 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRegister Load (21.0ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Exists (17.0ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (19.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 169ms (Views: 55.1ms | ActiveRecord: 41.7ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-06-26 17:41:32 -0300
+Processing by RegistersController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.6ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendering registers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered registers/new.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 96ms (Views: 46.7ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/registers" for 127.0.0.1 at 2018-06-26 17:41:38 -0300
+Processing by RegistersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WLWa8PSC7qHwouirpKIhUYXUV9i1+lKgfZqXtjKnuubEHHLu3rz4HejtKGPBYkjgw5ttHcHqiRqIRbX2+nNKqg==", "register"=>{"blood_type"=>"a+", "cancer_type"=>"tipo01"}, "commit"=>"Criar cadastro"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.4ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (111.9ms)[0m  [1m[32mINSERT INTO "registers" ("user_id", "blood_type", "cancer_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 8], ["blood_type", "a+"], ["cancer_type", "tipo01"], ["created_at", "2018-06-26 20:41:38.511627"], ["updated_at", "2018-06-26 20:41:38.511627"]]
+  [1m[35m (48.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRecomendation Load (44.3ms)[0m  [1m[34mSELECT  "recomendations".* FROM "recomendations" WHERE "recomendations"."type_cancer" = $1 LIMIT $2[0m  [["type_cancer", "tipo01"], ["LIMIT", 1]]
+  Rendering user_mailer/info_email.html.erb within layouts/mailer
+  Rendered user_mailer/info_email.html.erb within layouts/mailer (0.6ms)
+  Rendering user_mailer/info_email.text.erb within layouts/mailer
+  Rendered user_mailer/info_email.text.erb within layouts/mailer (0.8ms)
+UserMailer#info_email: processed outbound mail in 361.7ms
+Sent mail to vawuyaki@loketa.com (14.2ms)
+Date: Tue, 26 Jun 2018 17:41:39 -0300
+From: from@example.com
+To: vawuyaki@loketa.com
+Message-ID: <5b32a503abb19_1e3d2ada216cda3843084@mattconce-Inspiron-5420.mail>
+Subject: =?UTF-8?Q?Algumas_informa=C3=A7=C3=B5es_para_voc=C3=AA?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5b32a503a8cf8_1e3d2ada216cda38429d7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5b32a503a8cf8_1e3d2ada216cda38429d7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Combate ao C=C3=A2ncer, lara
+
+  Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+
+  alsdjfkalsdjfka
+
+  Tenha um =C3=B3timo dia!
+
+
+----==_mimepart_5b32a503a8cf8_1e3d2ada216cda38429d7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Combate ao C=C3=A2ncer, lara</h1>
+    <p>
+      Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+    </p>
+      alsdjfkalsdjfka
+    <p>
+
+    </p>
+    <p>Tenha um =C3=B3timo dia!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5b32a503a8cf8_1e3d2ada216cda38429d7--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 1203ms (ActiveRecord: 211.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 17:41:39 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (32.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered shared/_user_info.html.erb (34.4ms)
+  Rendered shared/_error_messages.html.erb (0.3ms)
+  Rendered shared/_post_form.html.erb (15.4ms)
+  Rendered static_pages/home.html.erb within layouts/application (51.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 98ms (Views: 52.4ms | ActiveRecord: 35.3ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2018-06-26 17:42:26 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.4ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered registers/_register.html.erb (0.4ms)
+  [1m[36mPost Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (24.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 88ms (Views: 81.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 17:46:05 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered shared/_user_info.html.erb (3.9ms)
+  Rendered shared/_error_messages.html.erb (0.6ms)
+  Rendered shared/_post_form.html.erb (3.4ms)
+  Rendered static_pages/home.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 68ms (Views: 63.2ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-06-26 17:46:07 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ktD+oc+7Ybohv9nvbbAckIQWpe6KXYFFaSLS96XoK2YtHIjPdM4M810D7YtCYCxceTCM4hQyksKTjBlPhUM4uA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 17:46:07 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (2.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 69ms (Views: 65.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-26 17:46:08 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered users/new.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 47ms (Views: 45.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-26 17:47:30 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g01W8ez/0zzxCixyQ+ftgQeB8+c40kQ2r1zzy5x/tcaRAYkVFc+BTHGMHLLyv93cvaRrauZb6xrhtZQxIHBMAA==", "user"=>{"name"=>"caio", "age"=>"32", "email"=>"2e58b81910@happymail.guru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Criar minha conta"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "2e58b81910@happymail.guru"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "age", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "caio"], ["email", "2e58b81910@happymail.guru"], ["age", 32], ["created_at", "2018-06-26 20:47:30.372080"], ["updated_at", "2018-06-26 20:47:30.372080"], ["password_digest", "$2a$10$D.GTB2JHJls4p3Yixq1sBOxwd6j1OXWuMahh9djp5sxfGxW5.FuGu"]]
+  [1m[35m (24.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 103ms (ActiveRecord: 25.7ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-06-26 17:47:30 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.2ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 44ms (Views: 40.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-06-26 17:47:32 -0300
+Processing by RegistersController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.6ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  Rendering registers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered registers/new.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 49ms (Views: 42.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/registers" for 127.0.0.1 at 2018-06-26 17:47:36 -0300
+Processing by RegistersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Sk9TCT+ZSJ90BenwxbT+hY3CQk4uoHSo8bHNRIocUtTW5rsXFadeI2xKKTigdJc0y414i1qwrxIEbu8EQsiimA==", "register"=>{"blood_type"=>"a+", "cancer_type"=>"tipo01"}, "commit"=>"Criar cadastro"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.5ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "registers" ("user_id", "blood_type", "cancer_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 9], ["blood_type", "a+"], ["cancer_type", "tipo01"], ["created_at", "2018-06-26 20:47:36.818208"], ["updated_at", "2018-06-26 20:47:36.818208"]]
+  [1m[35m (31.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRecomendation Load (0.5ms)[0m  [1m[34mSELECT  "recomendations".* FROM "recomendations" WHERE "recomendations"."type_cancer" = $1 LIMIT $2[0m  [["type_cancer", "tipo01"], ["LIMIT", 1]]
+  Rendering user_mailer/info_email.html.erb within layouts/mailer
+  Rendered user_mailer/info_email.html.erb within layouts/mailer (0.7ms)
+  Rendering user_mailer/info_email.text.erb within layouts/mailer
+  Rendered user_mailer/info_email.text.erb within layouts/mailer (0.9ms)
+UserMailer#info_email: processed outbound mail in 17.3ms
+Sent mail to 2e58b81910@happymail.guru (3.2ms)
+Date: Tue, 26 Jun 2018 17:47:36 -0300
+From: from@example.com
+To: 2e58b81910@happymail.guru
+Message-ID: <5b32a668d4de6_1e3d2ada216cdac443270@mattconce-Inspiron-5420.mail>
+Subject: =?UTF-8?Q?Algumas_informa=C3=A7=C3=B5es_para_voc=C3=AA?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5b32a668d3fa5_1e3d2ada216cdac443116";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5b32a668d3fa5_1e3d2ada216cdac443116
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Combate ao C=C3=A2ncer, caio
+
+  Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+
+  alsdjfkalsdjfka
+
+  Tenha um =C3=B3timo dia!
+
+
+----==_mimepart_5b32a668d3fa5_1e3d2ada216cdac443116
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Combate ao C=C3=A2ncer, caio</h1>
+    <p>
+      Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+    </p>
+      alsdjfkalsdjfka
+    <p>
+
+    </p>
+    <p>Tenha um =C3=B3timo dia!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5b32a668d3fa5_1e3d2ada216cdac443116--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 62ms (ActiveRecord: 34.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 17:47:36 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered shared/_user_info.html.erb (2.2ms)
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered shared/_post_form.html.erb (2.4ms)
+  Rendered static_pages/home.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 45ms (Views: 41.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-06-26 17:52:20 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nGRRZhZH4ir+snCBm5KjwrnmHT6aEjQbLwQkqcNaiYgjqCcIrTKPY4IOROW0QpMORMA0MgR9J5zVqu8R4/GaVg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 17:52:21 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (1.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 259ms (Views: 247.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-26 17:52:22 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (13.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 67ms (Views: 51.1ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-26 17:53:03 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S4yox/HqptpUtt7FEtJfnFtCy+Z2yRfWkCRoQQOhbE5ZwHcjCNr0qtQw7gWjim/B4WdTa6hAuPrezQ+7v66ViA==", "user"=>{"name"=>"gana", "age"=>"8", "email"=>"dc27337ff5@happymail.guru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Criar minha conta"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "dc27337ff5@happymail.guru"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "age", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "gana"], ["email", "dc27337ff5@happymail.guru"], ["age", 8], ["created_at", "2018-06-26 20:53:03.188834"], ["updated_at", "2018-06-26 20:53:03.188834"], ["password_digest", "$2a$10$6/F9hWHXhXVzzdy2Vs4LvO55RbGLT4tCuo82vsamBh/z0OrZ.yphy"]]
+  [1m[35m (13.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/10
+Completed 302 Found in 96ms (ActiveRecord: 17.3ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2018-06-26 17:53:03 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.5ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 77ms (Views: 40.3ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-06-26 17:53:04 -0300
+Processing by RegistersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.4ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  Rendering registers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered registers/new.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 53ms (Views: 37.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/registers" for 127.0.0.1 at 2018-06-26 17:53:10 -0300
+Processing by RegistersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RBZTbHhLmEodxAz1J6jFw4ttXobBaoIbep4bv8tLZcXYv7tyUnWO9gWLzD1CaKxyzSJkQ7V6WaGPQTn/A5+ViQ==", "register"=>{"blood_type"=>"a+", "cancer_type"=>"tipo01"}, "commit"=>"Criar cadastro"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.4ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "registers" ("user_id", "blood_type", "cancer_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 10], ["blood_type", "a+"], ["cancer_type", "tipo01"], ["created_at", "2018-06-26 20:53:10.531999"], ["updated_at", "2018-06-26 20:53:10.531999"]]
+  [1m[35m (47.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRecomendation Load (0.5ms)[0m  [1m[34mSELECT  "recomendations".* FROM "recomendations" WHERE "recomendations"."type_cancer" = $1 LIMIT $2[0m  [["type_cancer", "tipo01"], ["LIMIT", 1]]
+  Rendering user_mailer/info_email.html.erb within layouts/mailer
+  Rendered user_mailer/info_email.html.erb within layouts/mailer (0.5ms)
+  Rendering user_mailer/info_email.text.erb within layouts/mailer
+  Rendered user_mailer/info_email.text.erb within layouts/mailer (0.4ms)
+UserMailer#info_email: processed outbound mail in 187.0ms
+Sent mail to dc27337ff5@happymail.guru (5.9ms)
+Date: Tue, 26 Jun 2018 17:53:10 -0300
+From: from@example.com
+To: dc27337ff5@happymail.guru
+Message-ID: <5b32a7b6e058c_20b02afff5c1c28847453@mattconce-Inspiron-5420.mail>
+Subject: =?UTF-8?Q?Algumas_informa=C3=A7=C3=B5es_para_voc=C3=AA?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5b32a7b6df2a4_20b02afff5c1c28847336";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5b32a7b6df2a4_20b02afff5c1c28847336
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Combate ao C=C3=A2ncer, gana
+
+  Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+
+  alsdjfkalsdjfka
+
+  Tenha um =C3=B3timo dia!
+
+
+----==_mimepart_5b32a7b6df2a4_20b02afff5c1c28847336
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Combate ao C=C3=A2ncer, gana</h1>
+    <p>
+      Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+    </p>
+      alsdjfkalsdjfka
+    <p>
+
+    </p>
+    <p>Tenha um =C3=B3timo dia!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5b32a7b6df2a4_20b02afff5c1c28847336--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 395ms (ActiveRecord: 54.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 17:53:10 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered shared/_user_info.html.erb (2.2ms)
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered shared/_post_form.html.erb (3.7ms)
+  Rendered static_pages/home.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 52ms (Views: 40.7ms | ActiveRecord: 3.0ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-06-26 17:59:40 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/V+UtfUVI8YuKozMuoh6VA/ukaDjcERTWyRn/XDQnYxCk+LbTmBOj1KWuKiVWEqY8si4rH0fV9ShiqxFUHuOUg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 17:59:40 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (1.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 251ms (Views: 239.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-26 17:59:41 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered users/new.html.erb within layouts/application (20.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 95ms (Views: 74.7ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-26 18:00:00 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E4X47FPn38DV7oD5mQ5WtP3KBqje1vrrDjR1Zr/hpAoByScIqteNsFVosDkoVmbpR++eJQBfVcdA3RKcA+5dzA==", "user"=>{"name"=>"fabio", "age"=>"43", "email"=>"6526c0876d@happymail.guru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Criar minha conta"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "6526c0876d@happymail.guru"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "age", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "fabio"], ["email", "6526c0876d@happymail.guru"], ["age", 43], ["created_at", "2018-06-26 21:00:00.596740"], ["updated_at", "2018-06-26 21:00:00.596740"], ["password_digest", "$2a$10$4mBCYVLUcgrFB/BMx6edM.TSvr0XbfXcuGVPGuaP/LykuyWhbyUD."]]
+  [1m[35m (17.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/11
+Completed 302 Found in 101ms (ActiveRecord: 20.6ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2018-06-26 18:00:00 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.4ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 11], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 11], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 79ms (Views: 41.0ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-06-26 18:00:02 -0300
+Processing by RegistersController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.4ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 11], ["LIMIT", 1]]
+  Rendering registers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.6ms)
+  Rendered registers/new.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 55ms (Views: 37.7ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/registers" for 127.0.0.1 at 2018-06-26 18:00:11 -0300
+Processing by RegistersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5udIvXtXpnXDgHq7X0T5S2cH1fLnKvC4gHfT92KxuIp6TqCjUWmwydvPunM6hJD6IUjvN5M6KwJ1qPG3qmVIxg==", "register"=>{"blood_type"=>"a+", "cancer_type"=>"tipo01"}, "commit"=>"Criar cadastro"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.4ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "registers" ("user_id", "blood_type", "cancer_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 11], ["blood_type", "a+"], ["cancer_type", "tipo01"], ["created_at", "2018-06-26 21:00:11.439471"], ["updated_at", "2018-06-26 21:00:11.439471"]]
+  [1m[35m (18.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRecomendation Load (0.5ms)[0m  [1m[34mSELECT  "recomendations".* FROM "recomendations" WHERE "recomendations"."type_cancer" = $1 LIMIT $2[0m  [["type_cancer", "tipo01"], ["LIMIT", 1]]
+  Rendering user_mailer/info_email.html.erb within layouts/mailer
+  Rendered user_mailer/info_email.html.erb within layouts/mailer (0.4ms)
+  Rendering user_mailer/info_email.text.erb within layouts/mailer
+  Rendered user_mailer/info_email.text.erb within layouts/mailer (0.3ms)
+UserMailer#info_email: processed outbound mail in 201.9ms
+Sent mail to 6526c0876d@happymail.guru (2084.7ms)
+Date: Tue, 26 Jun 2018 18:00:11 -0300
+From: from@example.com
+To: 6526c0876d@happymail.guru
+Message-ID: <5b32a95bc9060_22902aca978f643494461@mattconce-Inspiron-5420.mail>
+Subject: =?UTF-8?Q?Algumas_informa=C3=A7=C3=B5es_para_voc=C3=AA?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5b32a95bc7caa_22902aca978f64349438b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5b32a95bc7caa_22902aca978f64349438b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Combate ao C=C3=A2ncer, fabio
+
+  Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+
+  alsdjfkalsdjfka
+
+  Tenha um =C3=B3timo dia!
+
+
+----==_mimepart_5b32a95bc7caa_22902aca978f64349438b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Combate ao C=C3=A2ncer, fabio</h1>
+    <p>
+      Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+    </p>
+      alsdjfkalsdjfka
+    <p>
+
+    </p>
+    <p>Tenha um =C3=B3timo dia!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5b32a95bc7caa_22902aca978f64349438b--
+
+Completed 500 Internal Server Error in 2471ms (ActiveRecord: 25.1ms)
+
+
+  
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbvF
+):
+  
+app/controllers/registers_controller.rb:14:in `create'
+Started GET "/" for 127.0.0.1 at 2018-06-26 18:03:03 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  Rendered shared/_user_info.html.erb (2.5ms)
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered shared/_post_form.html.erb (3.1ms)
+  Rendered static_pages/home.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 77ms (Views: 56.0ms | ActiveRecord: 2.8ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-06-26 18:03:06 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"m/JiH+D9dz0SwD3zTLKkTDrijgXqRe1xyKMDUIKioK4kPhRxW4gadG58CZdjYpSAx8SnCXQq/vYyDcjoogmzcA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 18:03:06 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (1.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 55ms (Views: 52.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-26 18:03:25 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.2ms)
+  Rendered users/new.html.erb within layouts/application (9.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 84ms (Views: 81.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-26 18:03:42 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jVT/cdNrRWRIu6OSmy6kO72oNvWFf2ZYU7La/z8FwhWfGCCVKlsXFMg9k1IqdpRmB42ueFv2yXQdW70Fgwo70w==", "user"=>{"name"=>"janio", "age"=>"23", "email"=>"f24b061fa8@happymail.guru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Criar minha conta"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "f24b061fa8@happymail.guru"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "age", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "janio"], ["email", "f24b061fa8@happymail.guru"], ["age", 23], ["created_at", "2018-06-26 21:03:42.394014"], ["updated_at", "2018-06-26 21:03:42.394014"], ["password_digest", "$2a$10$w4LpeZo5v7p0ee.9TAEhUuKLBFOlGeSR4plTA/fY3sQDF41cOXKKO"]]
+  [1m[35m (54.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/12
+Completed 302 Found in 133ms (ActiveRecord: 56.1ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2018-06-26 18:03:42 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.6ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 12], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 12], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 47ms (Views: 41.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-06-26 18:03:44 -0300
+Processing by RegistersController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.6ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 12], ["LIMIT", 1]]
+  Rendering registers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered registers/new.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 49ms (Views: 42.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/registers" for 127.0.0.1 at 2018-06-26 18:03:53 -0300
+Processing by RegistersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"azxwMmkJ32RC/U13bNSDeBghP39fFpBiZnIfT2yXGSD3lZgsQzfJ2Fqyjb8JFOrJXm4FuisGS9iTrT0PpEPpbA==", "register"=>{"blood_type"=>"a+", "cancer_type"=>"tipo01"}, "commit"=>"Criar cadastro"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.6ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "registers" ("user_id", "blood_type", "cancer_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 12], ["blood_type", "a+"], ["cancer_type", "tipo01"], ["created_at", "2018-06-26 21:03:53.880572"], ["updated_at", "2018-06-26 21:03:53.880572"]]
+  [1m[35m (26.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRecomendation Load (0.5ms)[0m  [1m[34mSELECT  "recomendations".* FROM "recomendations" WHERE "recomendations"."type_cancer" = $1 LIMIT $2[0m  [["type_cancer", "tipo01"], ["LIMIT", 1]]
+  Rendering user_mailer/info_email.html.erb within layouts/mailer
+  Rendered user_mailer/info_email.html.erb within layouts/mailer (0.5ms)
+  Rendering user_mailer/info_email.text.erb within layouts/mailer
+  Rendered user_mailer/info_email.text.erb within layouts/mailer (0.3ms)
+UserMailer#info_email: processed outbound mail in 13.6ms
+Sent mail to f24b061fa8@happymail.guru (3971.8ms)
+Date: Tue, 26 Jun 2018 18:03:53 -0300
+From: from@example.com
+To: f24b061fa8@happymail.guru
+Message-ID: <5b32aa39e1a05_22902aca978f63a8946a9@mattconce-Inspiron-5420.mail>
+Subject: =?UTF-8?Q?Algumas_informa=C3=A7=C3=B5es_para_voc=C3=AA?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5b32aa39e0e01_22902aca978f63a89453d";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5b32aa39e0e01_22902aca978f63a89453d
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Combate ao C=C3=A2ncer, janio
+
+  Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+
+  alsdjfkalsdjfka
+
+  Tenha um =C3=B3timo dia!
+
+
+----==_mimepart_5b32aa39e0e01_22902aca978f63a89453d
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Combate ao C=C3=A2ncer, janio</h1>
+    <p>
+      Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+    </p>
+      alsdjfkalsdjfka
+    <p>
+
+    </p>
+    <p>Tenha um =C3=B3timo dia!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5b32aa39e0e01_22902aca978f63a89453d--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 4022ms (ActiveRecord: 28.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 18:03:57 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  Rendered shared/_user_info.html.erb (2.5ms)
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered shared/_post_form.html.erb (2.1ms)
+  Rendered static_pages/home.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 48ms (Views: 42.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2018-06-26 18:06:00 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mRegister Load (0.6ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 12], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered registers/_register.html.erb (0.4ms)
+  [1m[36mPost Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 12], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 54ms (Views: 46.6ms | ActiveRecord: 2.3ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-06-26 18:06:03 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2eQPoraGjSS/5qvQ4S3CzJxcqzqGblSeIO+WDt8pQZtmKHnMDfPgbcNan7TO/fIAYXqCNhgBRxnaQV22/4JSRQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 18:06:03 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 52ms (Views: 49.4ms | ActiveRecord: 0.5ms)
+
+
