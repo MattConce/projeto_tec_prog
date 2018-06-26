@@ -8,8 +8,10 @@ class RegistersController < ApplicationController
 
   def create
     @register = current_user.build_register(register_params)
+    @user = current_user
     if @register.save
       flash[:success] = "Cadastro criado"
+      UserMailer.with(user: @user).info_email(@user).deliver
       redirect_to root_url
     else
       render 'new'
