@@ -5,7 +5,7 @@
 O objetivo do projeto é a criação de um ambiente de apoio e distribuição de informações para pacientes de câncer. Pretendemos criar uma plataforma em que os cadastrados possam compartilhar depoimentos e informações de sua situação. Pretendemos dar enfoque ao cadastro de pacientes que necessitem de doação de medula óssea ou sangue, e, por meio da página [Combate ao Câncer](http://fb.com/combatecancer "Facebook - Combate ao Câncer"), divulgar tais perfis para encontrar possíveis doadores.
 
 ## Instalação e execução
-Versão do rails: Rails 5.1.6
+Versão do rails: Rails 5.2.0
 
 Versão do posgres: 9.6
 
