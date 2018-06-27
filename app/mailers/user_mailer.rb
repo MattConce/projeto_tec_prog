@@ -10,6 +10,12 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Ativação de conta"
   end
 
+  def info_email(user)
+    @user = user
+    @type = Recomendation.find_by_type_cancer(user.register.cancer_type)
+    mail(to: user.email, subject: 'Algumas informações para você')
+  end
+
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -20,4 +26,6 @@ class UserMailer < ApplicationMailer
 
     mail to: "to@example.org"
   end
+
+
 end
