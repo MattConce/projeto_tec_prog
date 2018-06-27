@@ -1,4 +1,13 @@
-<div>  
+<div>
   <span class="body"> Tipo sanguíneo: <%= register.blood_type %></span>
-  <span class="body"> Tipo de câncer: <%= register.cancer_type %></span>
+  <span class="body"> Tipo de câncer: <%= register.blood_donation %></span>  
+  <% if register.blood_donation %>
+    <span class="body"> Precisa de doação de sangue</span>
+  <% end %>
+  <% if register.bone_donation %>
+    <span class="body"> Precisa de doação de medula</span>
+  <%end%>
+  <% if register.bone_donation || register.blood_donation %>
+    <span class="body"> Local para doação: <%= register.local %></span>
+  <%end%>
 </div>

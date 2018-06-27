@@ -21,6 +21,6 @@ class RegistersController < ApplicationController
   private
 
     def register_params
-      params.require(:register).permit(:blood_type, :cancer_type)
+      params.require(:register).permit(:blood_type, :cancer_type, :local, :blood_donation, :bone_donation)
     end
 end
