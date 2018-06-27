@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2018_06_25_203658) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "recomendations", force: :cascade do |t|
+    t.string "type_cancer"
+    t.text "info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "registers", force: :cascade do |t|
     t.bigint "user_id"
     t.string "blood_type"

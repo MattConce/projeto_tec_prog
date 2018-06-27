@@ -15138,3 +15138,969 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 52ms (Views: 49.4ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-06-26 21:01:36 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mattconce/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_user_info.html.erb:4
+  Rendered shared/_user_info.html.erb (2.7ms)
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered shared/_post_form.html.erb (4.5ms)
+  Rendered static_pages/home.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1757ms (Views: 1672.3ms | ActiveRecord: 11.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-06-26 21:01:40 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"imN05TLEUoqkKZwx3plk/cSG4s2/1T/d0qBfRYjuFjW2tgWnhxCXGNtCLMfSnkOgXjoOkxaO0t5xqxm0JoVIMA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 21:01:40 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered static_pages/home.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 114ms (Views: 107.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-26 21:01:53 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.1ms)
+  Rendered users/new.html.erb within layouts/application (11.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 60ms (Views: 57.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-06-26 21:01:55 -0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 79ms (Views: 49.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-26 21:01:57 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered users/new.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 60ms (Views: 57.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-26 21:02:51 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1f6YODSKlcX7+71pxgui1aAzZq/qnRMNFf9WE3319qHu2a7cZ1894qEuLfoejGBjFBiJoZvruuyklMojT0HXyg==", "user"=>{"name"=>"BinLaden", "age"=>"33", "email"=>"645187b423@happymail.guru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Criar minha conta"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "645187b423@happymail.guru"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "age", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "BinLaden"], ["email", "645187b423@happymail.guru"], ["age", 33], ["created_at", "2018-06-27 00:02:51.891192"], ["updated_at", "2018-06-27 00:02:51.891192"], ["password_digest", "$2a$10$NwricHUFpRsdK2Wfn3F5W.HpMJymsWIL/wKFI4KygJUBdl2rF0kOW"]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (29.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 111ms (ActiveRecord: 32.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-06-26 21:02:51 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mRegister Load (0.5ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered users/show.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 74ms (Views: 44.5ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-06-26 21:02:53 -0300
+Processing by RegistersController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  [1m[36mRegister Load (0.5ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/registers_controller.rb:5
+  Rendering registers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered registers/new.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 58ms (Views: 41.7ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/registers" for 127.0.0.1 at 2018-06-26 21:03:00 -0300
+Processing by RegistersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g/YSFkM1pQSmdCRcBQ5fXqivW6s2JbyttGdbafjqgxi9N/H/bqXJmC5iKG7GbXQNi8PUc8NSOHtkwu+xW5AsJQ==", "register"=>{"blood_type"=>"b+", "cancer_type"=>"tipo02"}, "commit"=>"Criar cadastro"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  [1m[36mRegister Load (0.6ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/registers_controller.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registers_controller.rb:12
+  [1m[36mRegister Create (1.0ms)[0m  [1m[32mINSERT INTO "registers" ("user_id", "blood_type", "cancer_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["blood_type", "B+"], ["cancer_type", "tipo02"], ["created_at", "2018-06-27 00:03:00.991714"], ["updated_at", "2018-06-27 00:03:00.991714"]]
+  ↳ app/controllers/registers_controller.rb:12
+  [1m[35m (18.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/registers_controller.rb:12
+  [1m[36mRecomendation Load (0.6ms)[0m  [1m[34mSELECT  "recomendations".* FROM "recomendations" WHERE "recomendations"."type_cancer" = $1 LIMIT $2[0m  [["type_cancer", "tipo02"], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:15
+  Rendering user_mailer/info_email.html.erb within layouts/mailer
+  Rendered user_mailer/info_email.html.erb within layouts/mailer (0.7ms)
+  Rendering user_mailer/info_email.text.erb within layouts/mailer
+  Rendered user_mailer/info_email.text.erb within layouts/mailer (0.3ms)
+UserMailer#info_email: processed outbound mail in 42.9ms
+Sent mail to 645187b423@happymail.guru (3441.1ms)
+Date: Tue, 26 Jun 2018 21:03:01 -0300
+From: from@example.com
+To: 645187b423@happymail.guru
+Message-ID: <5b32d4351fd68_5ae72b1c62c900a044630@mattconce-Inspiron-5420.mail>
+Subject: =?UTF-8?Q?Algumas_informa=C3=A7=C3=B5es_para_voc=C3=AA?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5b32d4351ef28_5ae72b1c62c900a0445cc";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5b32d4351ef28_5ae72b1c62c900a0445cc
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Combate ao C=C3=A2ncer, BinLaden
+
+  Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+
+  mais um bla
+
+  Tenha um =C3=B3timo dia!
+
+
+----==_mimepart_5b32d4351ef28_5ae72b1c62c900a0445cc
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Combate ao C=C3=A2ncer, BinLaden</h1>
+    <p>
+      Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+    </p>
+      mais um bla
+    <p>
+
+    </p>
+    <p>Tenha um =C3=B3timo dia!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5b32d4351ef28_5ae72b1c62c900a0445cc--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 3586ms (ActiveRecord: 25.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 21:03:04 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/shared/_user_info.html.erb:4
+  Rendered shared/_user_info.html.erb (2.5ms)
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered shared/_post_form.html.erb (2.1ms)
+  Rendered static_pages/home.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 54ms (Views: 45.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 21:04:11 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/shared/_user_info.html.erb:4
+  Rendered shared/_user_info.html.erb (2.9ms)
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered shared/_post_form.html.erb (2.9ms)
+  Rendered static_pages/home.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 52ms (Views: 46.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2018-06-26 21:04:12 -0300
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2018-06-26 21:04:13 -0300
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 45ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2018-06-26 21:04:13 -0300
+Processing by StaticPagesController#contact as HTML
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 41ms (Views: 39.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-06-26 21:04:15 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  ↳ app/views/users/index.html.erb:7
+  Rendered collection of users/_user.html.erb [2 times] (1.1ms)
+  Rendered users/index.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 46ms (Views: 42.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 21:04:16 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/shared/_user_info.html.erb:4
+  Rendered shared/_user_info.html.erb (3.6ms)
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered shared/_post_form.html.erb (2.9ms)
+  Rendered static_pages/home.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 56ms (Views: 50.3ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-06-26 21:04:17 -0300
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"V6+32IgqeKjkameQ5FFKZXWLt9iSxcu31ugMIOQn2pFresaaPf69OpsB12boVm047zdbhjueJrR140rRSkyElA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 21:04:17 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered static_pages/home.html.erb within layouts/application (1.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 41ms (Views: 38.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2018-06-26 21:04:18 -0300
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2018-06-26 21:04:19 -0300
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 44ms (Views: 42.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2018-06-26 21:04:19 -0300
+Processing by StaticPagesController#contact as HTML
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 43ms (Views: 41.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 21:04:20 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered static_pages/home.html.erb within layouts/application (2.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 58ms (Views: 54.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2018-06-26 21:04:21 -0300
+Processing by StaticPagesController#contact as HTML
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 47ms (Views: 45.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2018-06-26 21:04:23 -0300
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 48ms (Views: 45.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-26 21:04:24 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered static_pages/home.html.erb within layouts/application (4.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 48ms (Views: 44.2ms | ActiveRecord: 0.7ms)
+
+
+  [1m[35m (27.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (17.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (354.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "combateaocancer_development"[0m
+  ↳ bin/rails:4
+  [1m[35m (220.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "combateaocancer_test"[0m
+  ↳ bin/rails:4
+  [1m[35m (1286.3ms)[0m  [1m[35mCREATE DATABASE "combateaocancer_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (595.8ms)[0m  [1m[35mCREATE DATABASE "combateaocancer_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (87.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (75.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1448207408702222385)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20180501155954)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (54.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "age" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180501155954_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180501155954"]]
+  ↳ bin/rails:4
+  [1m[35m (15.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddIndexToUsersEmail (20180501160833)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20180501160833_add_index_to_users_email.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180501160833"]]
+  ↳ bin/rails:4
+  [1m[35m (16.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddPasswordDigestToUsers (20180501161258)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying[0m
+  ↳ db/migrate/20180501161258_add_password_digest_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180501161258"]]
+  ↳ bin/rails:4
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddActivationToUsers (20180609133126)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "activation_digest" character varying[0m
+  ↳ db/migrate/20180609133126_add_activation_to_users.rb:3
+  [1m[35m (71.4ms)[0m  [1m[35mALTER TABLE "users" ADD "activated" boolean DEFAULT FALSE[0m
+  ↳ db/migrate/20180609133126_add_activation_to_users.rb:4
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "activated_at" timestamp[0m
+  ↳ db/migrate/20180609133126_add_activation_to_users.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180609133126"]]
+  ↳ bin/rails:4
+  [1m[35m (10.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddRememberDigestToUsers (20180609133835)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_digest" character varying[0m
+  ↳ db/migrate/20180609133835_add_remember_digest_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180609133835"]]
+  ↳ bin/rails:4
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreatePosts (20180609172907)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (52.0ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "body" text, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20180609172907_create_posts.rb:3
+  [1m[35m (28.6ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  ↳ db/migrate/20180609172907_create_posts.rb:3
+  [1m[35m (30.2ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id_and_created_at" ON "posts"  ("user_id", "created_at")[0m
+  ↳ db/migrate/20180609172907_create_posts.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180609172907"]]
+  ↳ bin/rails:4
+  [1m[35m (10.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateRegisters (20180610140716)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (52.8ms)[0m  [1m[35mCREATE TABLE "registers" ("id" bigserial primary key, "user_id" bigint, "blood_type" character varying, "cancer_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_1d13c3f101"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20180610140716_create_registers.rb:3
+  [1m[35m (29.1ms)[0m  [1m[35mCREATE  INDEX  "index_registers_on_user_id" ON "registers"  ("user_id")[0m
+  ↳ db/migrate/20180610140716_create_registers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180610140716"]]
+  ↳ bin/rails:4
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateRecomendations (20180625203658)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (76.1ms)[0m  [1m[35mCREATE TABLE "recomendations" ("id" bigserial primary key, "type_cancer" character varying, "info" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180625203658_create_recomendations.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180625203658"]]
+  ↳ bin/rails:4
+  [1m[35m (17.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-27 21:31:52.249861"], ["updated_at", "2018-06-27 21:31:52.249861"]]
+  ↳ bin/rails:4
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1448207408702222385)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1448207408702222385)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1448207408702222385)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mRecomendation Create (1.1ms)[0m  [1m[32mINSERT INTO "recomendations" ("type_cancer", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["type_cancer", "tipo01"], ["info", "recomendações1"], ["created_at", "2018-06-27 21:36:15.249035"], ["updated_at", "2018-06-27 21:36:15.249035"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (12.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mRecomendation Create (0.5ms)[0m  [1m[32mINSERT INTO "recomendations" ("type_cancer", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["type_cancer", "tipo02"], ["info", "recomendações2"], ["created_at", "2018-06-27 21:36:15.265796"], ["updated_at", "2018-06-27 21:36:15.265796"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mRecomendation Create (0.6ms)[0m  [1m[32mINSERT INTO "recomendations" ("type_cancer", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["type_cancer", "tipo03"], ["info", "recomendações3"], ["created_at", "2018-06-27 21:36:15.276683"], ["updated_at", "2018-06-27 21:36:15.276683"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mRecomendation Create (0.6ms)[0m  [1m[32mINSERT INTO "recomendations" ("type_cancer", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["type_cancer", "tipo04"], ["info", "recomendações4"], ["created_at", "2018-06-27 21:36:15.288202"], ["updated_at", "2018-06-27 21:36:15.288202"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mRecomendation Create (0.6ms)[0m  [1m[32mINSERT INTO "recomendations" ("type_cancer", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["type_cancer", "tipo05"], ["info", "recomendaçẽos5"], ["created_at", "2018-06-27 21:36:15.299038"], ["updated_at", "2018-06-27 21:36:15.299038"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (5010.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "combateaocancer_development"[0m
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (215.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "combateaocancer_development"[0m
+  ↳ bin/rails:4
+  [1m[35m (233.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "combateaocancer_test"[0m
+  ↳ bin/rails:4
+  [1m[35m (615.7ms)[0m  [1m[35mCREATE DATABASE "combateaocancer_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (629.5ms)[0m  [1m[35mCREATE DATABASE "combateaocancer_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (99.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (75.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1448207408702222385)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20180501155954)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (47.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "age" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180501155954_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180501155954"]]
+  ↳ bin/rails:4
+  [1m[35m (9.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddIndexToUsersEmail (20180501160833)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (32.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20180501160833_add_index_to_users_email.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180501160833"]]
+  ↳ bin/rails:4
+  [1m[35m (14.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddPasswordDigestToUsers (20180501161258)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying[0m
+  ↳ db/migrate/20180501161258_add_password_digest_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180501161258"]]
+  ↳ bin/rails:4
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddActivationToUsers (20180609133126)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "activation_digest" character varying[0m
+  ↳ db/migrate/20180609133126_add_activation_to_users.rb:3
+  [1m[35m (134.9ms)[0m  [1m[35mALTER TABLE "users" ADD "activated" boolean DEFAULT FALSE[0m
+  ↳ db/migrate/20180609133126_add_activation_to_users.rb:4
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "activated_at" timestamp[0m
+  ↳ db/migrate/20180609133126_add_activation_to_users.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180609133126"]]
+  ↳ bin/rails:4
+  [1m[35m (11.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddRememberDigestToUsers (20180609133835)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_digest" character varying[0m
+  ↳ db/migrate/20180609133835_add_remember_digest_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180609133835"]]
+  ↳ bin/rails:4
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreatePosts (20180609172907)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (82.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "body" text, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20180609172907_create_posts.rb:3
+  [1m[35m (28.2ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  ↳ db/migrate/20180609172907_create_posts.rb:3
+  [1m[35m (29.8ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id_and_created_at" ON "posts"  ("user_id", "created_at")[0m
+  ↳ db/migrate/20180609172907_create_posts.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180609172907"]]
+  ↳ bin/rails:4
+  [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateRegisters (20180610140716)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (72.8ms)[0m  [1m[35mCREATE TABLE "registers" ("id" bigserial primary key, "user_id" bigint, "blood_type" character varying, "cancer_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_1d13c3f101"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20180610140716_create_registers.rb:3
+  [1m[35m (31.5ms)[0m  [1m[35mCREATE  INDEX  "index_registers_on_user_id" ON "registers"  ("user_id")[0m
+  ↳ db/migrate/20180610140716_create_registers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180610140716"]]
+  ↳ bin/rails:4
+  [1m[35m (10.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateRecomendations (20180625203658)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (61.9ms)[0m  [1m[35mCREATE TABLE "recomendations" ("id" bigserial primary key, "type_cancer" character varying, "info" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180625203658_create_recomendations.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180625203658"]]
+  ↳ bin/rails:4
+  [1m[35m (10.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-27 21:38:44.090194"], ["updated_at", "2018-06-27 21:38:44.090194"]]
+  ↳ bin/rails:4
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(1448207408702222385)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mRecomendation Create (1.1ms)[0m  [1m[32mINSERT INTO "recomendations" ("type_cancer", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["type_cancer", "tipo01"], ["info", "recomendações1"], ["created_at", "2018-06-27 21:38:58.510578"], ["updated_at", "2018-06-27 21:38:58.510578"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (10.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mRecomendation Create (0.7ms)[0m  [1m[32mINSERT INTO "recomendations" ("type_cancer", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["type_cancer", "tipo02"], ["info", "recomendações2"], ["created_at", "2018-06-27 21:38:58.525545"], ["updated_at", "2018-06-27 21:38:58.525545"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mRecomendation Create (0.7ms)[0m  [1m[32mINSERT INTO "recomendations" ("type_cancer", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["type_cancer", "tipo03"], ["info", "recomendações3"], ["created_at", "2018-06-27 21:38:58.537137"], ["updated_at", "2018-06-27 21:38:58.537137"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mRecomendation Create (0.7ms)[0m  [1m[32mINSERT INTO "recomendations" ("type_cancer", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["type_cancer", "tipo04"], ["info", "recomendações4"], ["created_at", "2018-06-27 21:38:58.548126"], ["updated_at", "2018-06-27 21:38:58.548126"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mRecomendation Create (0.6ms)[0m  [1m[32mINSERT INTO "recomendations" ("type_cancer", "info", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["type_cancer", "tipo05"], ["info", "recomendaçẽos5"], ["created_at", "2018-06-27 21:38:58.559062"], ["updated_at", "2018-06-27 21:38:58.559062"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+Started GET "/" for 127.0.0.1 at 2018-06-27 18:39:19 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mattconce/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered static_pages/home.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 508ms (Views: 480.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-06-27 18:39:21 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.9ms)
+  Rendered users/new.html.erb within layouts/application (39.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 129ms (Views: 87.6ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-27 18:39:50 -0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Aghqe2vFc79zqDwoVQq1fMKuwpyplSxENZ6JK1caV0RUMkHHw5owV+BE8VBTmVHFGztKpNFCi3hIXotU7hjkOA==", "user"=>{"name"=>"Rick", "age"=>"100", "email"=>"a5318c64f0@happymail.guru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Criar minha conta"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "a5318c64f0@happymail.guru"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "age", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rick"], ["email", "a5318c64f0@happymail.guru"], ["age", 100], ["created_at", "2018-06-27 21:39:50.355945"], ["updated_at", "2018-06-27 21:39:50.355945"], ["password_digest", "$2a$10$hZFmorIMpWtgj4G9BE6VsOcFeQC46qO/0pcd2CGEBWILF7TpG5xby"]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 85ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-06-27 18:39:50 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mRegister Load (0.4ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:19
+  Rendered users/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 103ms (Views: 40.2ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2018-06-27 18:39:52 -0300
+Processing by RegistersController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  [1m[36mRegister Load (0.5ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/registers_controller.rb:5
+  Rendering registers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered registers/new.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 67ms (Views: 40.6ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/registers" for 127.0.0.1 at 2018-06-27 18:40:01 -0300
+Processing by RegistersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xdVfxppYfU8AhdzaJp1+8zu7RpUefu4ePSJ/OatPoC0TCQwnJPxjSPcGm29yXZyRfailDfKI9O8slJla4CMebA==", "register"=>{"blood_type"=>"a+", "cancer_type"=>"tipo03"}, "commit"=>"Criar cadastro"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  [1m[36mRegister Load (0.3ms)[0m  [1m[34mSELECT  "registers".* FROM "registers" WHERE "registers"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/registers_controller.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registers_controller.rb:12
+  [1m[36mRegister Create (1.3ms)[0m  [1m[32mINSERT INTO "registers" ("user_id", "blood_type", "cancer_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["blood_type", "A+"], ["cancer_type", "tipo03"], ["created_at", "2018-06-27 21:40:01.990421"], ["updated_at", "2018-06-27 21:40:01.990421"]]
+  ↳ app/controllers/registers_controller.rb:12
+  [1m[35m (51.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/registers_controller.rb:12
+  [1m[36mRecomendation Load (0.6ms)[0m  [1m[34mSELECT  "recomendations".* FROM "recomendations" WHERE "recomendations"."type_cancer" = $1 LIMIT $2[0m  [["type_cancer", "tipo03"], ["LIMIT", 1]]
+  ↳ app/mailers/user_mailer.rb:15
+  Rendering user_mailer/info_email.html.erb within layouts/mailer
+  Rendered user_mailer/info_email.html.erb within layouts/mailer (0.8ms)
+  Rendering user_mailer/info_email.text.erb within layouts/mailer
+  Rendered user_mailer/info_email.text.erb within layouts/mailer (0.7ms)
+UserMailer#info_email: processed outbound mail in 209.5ms
+Sent mail to a5318c64f0@happymail.guru (5348.5ms)
+Date: Wed, 27 Jun 2018 18:40:02 -0300
+From: from@example.com
+To: a5318c64f0@happymail.guru
+Message-ID: <5b34043296725_50452aae567886048789c@mattconce-Inspiron-5420.mail>
+Subject: =?UTF-8?Q?Algumas_informa=C3=A7=C3=B5es_para_voc=C3=AA?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5b340432955b0_50452aae567886048778e";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5b340432955b0_50452aae567886048778e
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Combate ao C=C3=A2ncer, Rick
+
+  Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+
+  recomenda=C3=A7=C3=B5es3
+
+  Tenha um =C3=B3timo dia!
+
+
+----==_mimepart_5b340432955b0_50452aae567886048778e
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Combate ao C=C3=A2ncer, Rick</h1>
+    <p>
+      Segue algumas informa=C3=A7=C3=B5es =C3=BAteis para voc=C3=AA
+    </p>
+      recomenda=C3=A7=C3=B5es3
+    <p>
+
+    </p>
+    <p>Tenha um =C3=B3timo dia!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5b340432955b0_50452aae567886048778e--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 5977ms (ActiveRecord: 59.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-27 18:40:07 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_user_info.html.erb:4
+  Rendered shared/_user_info.html.erb (2.2ms)
+  Rendered shared/_error_messages.html.erb (0.3ms)
+  Rendered shared/_post_form.html.erb (2.7ms)
+  Rendered static_pages/home.html.erb within layouts/application (20.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 69ms (Views: 56.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-27 18:40:23 -0300
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:9
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_user_info.html.erb:4
+  Rendered shared/_user_info.html.erb (2.7ms)
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered shared/_post_form.html.erb (3.0ms)
+  Rendered static_pages/home.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 49ms (Views: 43.6ms | ActiveRecord: 1.2ms)
+
+
