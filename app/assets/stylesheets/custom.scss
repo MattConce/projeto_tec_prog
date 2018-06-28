@@ -1,8 +1,10 @@
 @import "bootstrap";
 
 body {
-  padding-top: 60px;
   background-color:#fef9ba;
+  a:link {color: #f7225e}
+  a:visited {color: #941438}
+  a:hover {color: #FA7A9E}
 }
 
 section {
@@ -51,6 +53,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color:#f7225e;
 }
 
 h2 {
@@ -225,7 +228,12 @@ span.picture {
   }
 }
 
-.navbar {
+.navbar-cactheme {
     background-color: #f7225e;
-    font-weight: bold;
+}
+
+.navitem-cac {
+    a:link {color: #32607e}
+    a:visited {color: #00395F}
+    a:hover {color: #f7225e}
 }

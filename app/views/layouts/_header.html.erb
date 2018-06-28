@@ -1,19 +1,19 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top2 navbar-cactheme">
   <div class="container">
     <%= link_to "ACC", root_path , id:"logo" %>
     <nav class="navbar-dark bg-dark">
       <ul class="nav navbar-nav navbar-left">
-        <li class="nav-item"> <%= link_to "Home", root_path %></li>
-        <li class="nav-item"> <%= link_to "Ajuda", help_path %></li>
-        <li class="nav-item"> <%= link_to "Sobre", about_path %></li>
-        <li class="nav-item"> <%= link_to "Contato", contact_path %></li>
+        <li class="nav-item navitem-cac"> <%= link_to "Home", root_path %></li>
+        <li class="nav-item navitem-cac"> <%= link_to "Ajuda", help_path %></li>
+        <li class="nav-item navitem-cac"> <%= link_to "Sobre", about_path %></li>
+        <li class="nav-item navitem-cac"> <%= link_to "Contato", contact_path %></li>
         <% if logged_in? %>
-          <li><%= link_to "Usuários", users_path %></li>
-          <li class="dropdown">
+          <li class="navitem-cac"><%= link_to "Usuários", users_path %></li>
+          <li class="dropdown navitem-cac">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Minha conta <b class="caret"></b>
            </a>
-           <ul class="dropdown-menu">
+           <ul class="dropdown-menu navitem-cac">
              <li><%= link_to "Perfil", current_user %></li>
              <li><%= link_to "Configurações", '#' %></li>
              <li class="divider"></li>
@@ -23,7 +23,7 @@
            </ul>
          </li>
        <% else %>
-         <li><%= link_to "Entrar", login_path %></li>
+         <li class="navitem-cac"><%= link_to "Entrar", login_path %></li>
        <% end %>
       </ul>
     </nav>
