@@ -1,4 +1,3 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
 body {
@@ -28,11 +27,13 @@ textarea {
   float: left;
   margin-right: 10px;
   font-size: 2.0em;
-  color: #fff;
+  color: #2e3b60;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  position: relative;
+  bottom: 3px;
 }
 
 #logo:hover {
@@ -71,12 +72,12 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #000;
+  border-top: 1px solid #f7225e;
   color: #777;
   a {
     color:black;
     &:hover {
-      color:white;
+        color:#f7225e;
     }
   }
   small {
@@ -222,4 +223,9 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+.navbar {
+    background-color: #f7225e;
+    font-weight: bold;
 }
