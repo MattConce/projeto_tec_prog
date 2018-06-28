@@ -4,6 +4,8 @@
     <section class="user-info">
       <h1>
         <%= gravatar_for @user %>
+        <p><%= link_to 'Edit', edit_user_path(@user) %></p>
+        <%= image_tag(@user.image.url, alt: 'Image') if @user.image? %>
         <%= @user.name %>
       </h1>
         <% if @user.register %>           

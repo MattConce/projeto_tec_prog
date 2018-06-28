@@ -34,6 +34,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'figaro'
 
+# Para imagens de usuários
+gem 'carrierwave', '~> 1.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

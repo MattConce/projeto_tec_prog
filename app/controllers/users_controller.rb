@@ -27,9 +27,17 @@ class UsersController < ApplicationController
   end
   wrap_parameters :user, include: [:name, :age, :email, :password, :password_confirmation]
 
+  # def update
+  #   if @user.update_attributes(user_params)
+  #     redirect_to post_path(@user)
+  #   else
+  #     render :edit
+  #   end
+  # end
+
   private
     def user_params
-      params.require(:user).permit(:name, :age, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :age, :email, :password, :password_confirmation, :image)
     end
 
     def correct_user
