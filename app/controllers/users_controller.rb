@@ -27,13 +27,13 @@ class UsersController < ApplicationController
   end
   wrap_parameters :user, include: [:name, :age, :email, :password, :password_confirmation]
 
-  # def update
-  #   if @user.update_attributes(user_params)
-  #     redirect_to post_path(@user)
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to post_path(@user)
+    else
+      render @user
+    end
+  end
 
   private
     def user_params
