@@ -26,17 +26,17 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
 
-  # def edit
-  #   @post = Post.find(params[:id])
-  #   @user = current_user
-  #   if @post.user.id  != @user.id
-  #     redirect_to @user
-  #   end 
-  # end
+  def edit
+    @user = current_user
+    if @user.id != User.find(params[:id]).id
+      redirect_to @user
+    end 
+  end
 
   def update
     @user = User.find(params[:id])
-    printf("Imagem na função update %s\n", @user.image)
+    printf("@user.image na função update %s\n", @user.image)
+    printf("current_user.image na função update %s\n", current_user.image)
     if @user.update_attributes(user_params)
       redirect_to post_path(@user)
     else
