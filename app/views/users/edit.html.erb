@@ -2,7 +2,8 @@
 <h1>Dados do Usuário</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(current_user) do |f| %>
+    <%= form_with(model: @user = User.find(params[:id]), local: true) do |f| %>
+    
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label "Nome" %>
