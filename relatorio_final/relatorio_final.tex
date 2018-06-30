@@ -1,0 +1,52 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage[brazilian]{babel}
+\usepackage{multicol} 
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float} % necessário para manter as imagens no lugar certo
+%\usepackage{wrapfig}
+\title{{\bf Universidade de São Paulo} \\MAC 0218 - Técnicas de Programação 2 \\ Relatório da Fase Final do Projeto}
+\author{Leonardo Ikeda     nº USP: 10262822 \\
+	    Marcelo Schmitt    nº USP: 9297641\\
+	    Matheus Conceição  nº USP: 10297672}
+\begin{document}
+\date{}
+\maketitle
+
+%Deve ser entregue no paca um relatório sucinto do que foi feito, quais os próximos passos  e das principais dificuldades encontradas. 
+
+\noindent Funcionalidades implementadas até agora:
+\begin{itemize}
+	\item Tela de boas vindas (acessível pela url \url{http://localhost:3000/})
+	\item Cadastro de usuário (\url{http://localhost:3000/signup})
+	\item Visualização básica de cada usuário cadastrados (\url{http://localhost:3000/users/1} para informações do usuário de id 1 por exemplo)
+	\item Listagem de usuário na tela \url{http://localhost:3000/users}
+	\item O sistema de login agora permite que apenas usuários logados façam depoimentos. A criação de um email e senha para acesso ao sistema pode ser feita na página \url{http://localhost:3000/signup}
+	\item Registro de depoimentos dos usuário. Quando logado um usuário pode deixar um novo depoimento acessando a tela \url{http://localhost:3000/} e clicando no botão Postar logo abaixo da caixa de texto para digitação do depoimento.
+	\item Os depoimentos dos usuários podem ser vistos na página de perfil de cada usuário (para o primeiro usuário cadastrado essa página é \url{http://localhost:3000/users/1})
+	\item Cadastro do tipo sanguíneo e tipo de câncer que um usuário possa ter (pode ser feito na página \url{http://localhost:3000/register})
+	\item Os usuários podem complementar seu cadastro criando um registro onde ficam salvos o seu tipo sanguíneo, tipo de câncer, se tem interesse em ser doador de sangue, se tem interesse em ser doador de medula óssea, e em que local deseja fazer possíveis doações \url{http://localhost:3000/register}.
+	\item O envio de e-mail informativos para usuários que tenham feito um registro complementando o seu cadastrado traz informações específicas sobre o tipo de câncer cadastrado no registro do usuário.
+	\item A interface do sistema foi melhorada para seguir o mesmo sistema de cores da página combateaocancer \url{http://www.combateaocancer.com/}.
+	\item A tela de informações gerais sobre câncer foi deixada na tela principal de ajuda \url{http://localhost:3000/help}
+
+\end{itemize}
+
+\noindent Dificuldades encontradas:
+\begin{itemize}
+	\item Configuração e uso do RSpec com FactoryBot
+	\item Elaboração dos testes automatizados
+	\item Configuração das rotas para cada uma das páginas
+	\item Pretendiamos permitir que os usuários incluissem uma imagem de perfil mas não conseguimos implementar totalmente essa funcionalidade
+	\item Outra funcionalidade que não conseguimos implementar foi a funcionalidade de publicar os depoimentos como posts no facebook
+	\item Formulação de testes para o envio de emails
+\end{itemize}
+
+\end{document}
