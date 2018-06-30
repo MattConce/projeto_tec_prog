@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :recomendation do
-    type_cancer "MyString"
-    info "MyText"
+    type_cancer "Estômago"
+    info "recomendações ..."
   end
 end
