@@ -12,4 +12,5 @@ class Register < ApplicationRecord
 
   validates :local, presence: true
   before_save { blood_type.upcase! }
+
 end
