@@ -5,10 +5,10 @@ class Register < ApplicationRecord
   VALID_BTYPE = /(\A(a|b|ab|o)[+|-]\z)/i
   validates :blood_type, presence: true, format: {with: VALID_BTYPE}
   validates :cancer_type, presence: true
-  validates :blood_donation,
-           presence: {if: -> {'blood_donation.nil?'}}
-  validates :bone_donation,
-           presence: {if: -> {'bone_donation.nil?' }}
+  validates_inclusion_of :blood_donation,
+           :in => [true, false]
+  validates_inclusion_of :bone_donation,
+           :in => [true, false]
 
   validates :local, presence: true
   before_save { blood_type.upcase! }
