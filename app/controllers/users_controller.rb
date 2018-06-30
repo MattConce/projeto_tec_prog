@@ -26,11 +26,32 @@ class UsersController < ApplicationController
   def index
     @users = User.paginate(page: params[:page])
   end
+
+  def edit
+    @user = current_user
+    if @user.id != User.find(params[:id]).id
+      redirect_to @user
+    end 
+  end
+
+  def update
+    @user = User.find(params[:id])
+    printf("@user.image na função update %s\n", @user.image)
+    printf("current_user.image na função update %s\n", current_user.image)
+    if @user.update_attributes(user_params)
+      redirect_to post_path(@user)
+    else
+      render @user
+    end
+  end
+  
   wrap_parameters :user, include: [:name, :age, :email, :password, :password_confirmation]
+
+
 
   private
     def user_params
-      params.require(:user).permit(:name, :age, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :age, :email, :password, :password_confirmation, :image)
     end
 
     def correct_user

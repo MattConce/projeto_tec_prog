@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_one :register, dependent: :destroy
 
+  mount_uploader :image, ImageUploader
+
   # before_save { self.email = email.downcase }
   before_save { email.downcase! }
 end
