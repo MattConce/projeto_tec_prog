@@ -4,13 +4,43 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for (@register) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
+    <h2> Preencha o formulário </h2>
 
       <%= f.label "Tipo sanguíneo" %>
       <%= f.text_field :blood_type %>
-      <br>
+
       <%= f.label "Tipo de câncer" %>
       <%= f.text_field :cancer_type %>
-      <br>
+
+    <table>
+      <p> Doação de sangue </p>
+      <tr>
+        <td><%= f.label 'blood_donation_true', 'Sim' %></td>
+        <td><%= f.radio_button :blood_donation, true %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label 'blood_donation_false', 'Não' %></td>
+        <td><%= f.radio_button :blood_donation, false %></td>
+      </tr>
+    </table>
+
+    <table>
+      <p> Doação de medula </p>
+      <tr>
+        <td><%= f.label 'bone_donation_true', 'Sim' %></td>
+        <td><%= f.radio_button :bone_donation, true %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label 'bone_donation_false', 'Não' %></td>
+        <td><%= f.radio_button :bone_donation, false %></td>
+      </tr>
+    </table>
+
+      <%= f.label "Local para doação" %>
+      <%= f.text_field :local %>
+
       <%= f.submit "Criar cadastro", class: "btn btn-primary" %>
 
     <% end %>

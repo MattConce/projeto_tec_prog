@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_28_215830) do
+ActiveRecord::Schema.define(version: 2018_06_27_220158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,9 @@ ActiveRecord::Schema.define(version: 2018_06_28_215830) do
     t.text "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "local"
+    t.boolean "blood_donation"
+    t.boolean "bone_donation"
   end
 
   create_table "registers", force: :cascade do |t|
@@ -59,6 +62,9 @@ ActiveRecord::Schema.define(version: 2018_06_28_215830) do
     t.string "cancer_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "local"
+    t.boolean "blood_donation"
+    t.boolean "bone_donation"
     t.index ["user_id"], name: "index_registers_on_user_id"
   end
 

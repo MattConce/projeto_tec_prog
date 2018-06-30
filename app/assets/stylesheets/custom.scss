@@ -1,9 +1,10 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
 body {
-  padding-top: 60px;
-  background-color:#F9F15C;
+  background-color:#fef9ba;
+  a:link {color: #f7225e}
+  a:visited {color: #941438}
+  a:hover {color: #FA7A9E}
 }
 
 section {
@@ -28,11 +29,13 @@ textarea {
   float: left;
   margin-right: 10px;
   font-size: 2.0em;
-  color: #fff;
+  color: #2e3b60;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  position: relative;
+  bottom: 3px;
 }
 
 #logo:hover {
@@ -45,10 +48,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-weight: bold;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color:#f7225e;
 }
 
 h2 {
@@ -57,24 +62,25 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: #2b2525;
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  color: #2a363b;
 }
 
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid #f7225e;
   color: #777;
   a {
-    color:white;
+    color:black;
     &:hover {
-      color: #222;
+        color:#f7225e;
     }
   }
   small {
@@ -220,4 +226,14 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+.navbar-cactheme {
+    background-color: #f7225e;
+}
+
+.navitem-cac {
+    a:link {color: #32607e}
+    a:visited {color: #00395F}
+    a:hover {color: #f7225e}
 }
